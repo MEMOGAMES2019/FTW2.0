@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Script que mueve el objeto mediante la función seno en el eje Z.
 /// </summary>
-public class AnimaciónSeno : MonoBehaviour {
+public class AnimaciónSeno : MonoBehaviour
+{
     Vector3 _startPosition;
+
     void Start()
     {
         _startPosition = transform.position;
@@ -14,6 +14,6 @@ public class AnimaciónSeno : MonoBehaviour {
 
     void Update()
     {
-        transform.position =  new Vector3(transform.position.x, transform.position.y, _startPosition.z+(Mathf.Sin(Time.time*3)));
+        transform.position = new Vector3(transform.position.x, transform.position.y, _startPosition.z + (Mathf.Sin(Time.time * 3)));
     }
 }

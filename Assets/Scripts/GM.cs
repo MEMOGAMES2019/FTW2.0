@@ -59,7 +59,7 @@ public class GM : MonoBehaviour {
         #endregion
         
         solver = new AStarSolver(ancho, alto);                                      //Se inicializa el solver.
-        solver.actualizaMapa(mapa);
+        solver.ActualizaMapa(mapa);
         meta.x = Mathf.FloorToInt(metaO.transform.position.x); meta.y = Mathf.FloorToInt(-metaO.transform.position.y);
         
     }
@@ -72,9 +72,9 @@ public class GM : MonoBehaviour {
     /// <param name="y"></param>
     /// <param name="mostrar"></param>
 
-	public void find(int x, int y, bool mostrar)
+	public void Find(int x, int y, bool mostrar)
     {
-        sol = solver.solve(x, y, meta);
+        sol = solver.Solve(x, y, meta);
         sol.RemoveFirst();
         while ( sol.Count > 0)
         {
@@ -92,7 +92,7 @@ public class GM : MonoBehaviour {
     public void OnMapClicked()
     {
         paused = !paused;
-        coche.transform.Find("Coche").gameObject.GetComponent<Coche>().onPause();
+        coche.transform.Find("Coche").gameObject.GetComponent<Coche>().OnPause();
         coche.transform.Find("Posicion").gameObject.SetActive(paused);
         cameraPausa.gameObject.SetActive(paused);
 
@@ -101,13 +101,13 @@ public class GM : MonoBehaviour {
             x = Mathf.FloorToInt(coche.gameObject.transform.position.x);
             y = Mathf.FloorToInt(-coche.gameObject.transform.position.y);
             Debug.Log(x + " " + y);
-            find(x, y, true);
+            Find(x, y, true);
         }
         else
         {
 
             Debug.Log(x + " " + y);
-            find(x, y, false);
+            Find(x, y, false);
         }
     }
 
@@ -115,14 +115,14 @@ public class GM : MonoBehaviour {
     /// Se llama cuando acaba la partida. El parametro win contiene si se ha ganado o no.
     /// </summary>
     /// <param name="win"></param>
-    public void gameOver(bool win)
+    public void GameOver(bool win)
     {
-        coche.transform.Find("Coche").gameObject.GetComponent<Coche>().onPause();
+        coche.transform.Find("Coche").gameObject.GetComponent<Coche>().OnPause();
 
         if (win) //Si se ha ganado se activa el panel de victoria y se dan las estrellas correspondientes según el consumo.
         {
             panelWin.gameObject.SetActive(true);
-            int consumo = coche.transform.GetChild(3).GetComponent<Coche>().getConsumoTotal();
+            int consumo = coche.transform.GetChild(3).GetComponent<Coche>().GetConsumoTotal();
             int numEstr = 0;
             if (consumo <= consumoIdeal +10) numEstr = 3;
             else if (consumo  <= consumoIdeal+30) numEstr = 2;

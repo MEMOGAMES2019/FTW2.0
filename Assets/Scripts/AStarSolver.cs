@@ -1,16 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// Script que calcula el mejor camino entre dos puntos mediante el algoritmo A*.
 /// </summary>
-
 class Node
 {
     public int gCost = 0, hCost = 0, fCost = 0, x = 0, y = 0, terreno = 0;
     public Node parent = null;
 }
+
 public struct Posicion
 {
     public int x, y;
@@ -38,16 +37,15 @@ namespace AStar
 
         }
 
-        public void actualizaMapa(int[,] m)                                        //Método que actualiza la matriz con el estado del mapa
+        public void ActualizaMapa(int[,] m)                                        //Método que actualiza la matriz con el estado del mapa
         {
             mapa = m;
         }
 
-        public LinkedList<Posicion> solve(int x, int y, Posicion pActivo)           //Método que resuelve el mapa con el algoritmo AStar
+        public LinkedList<Posicion> Solve(int x, int y, Posicion pActivo)           //Método que resuelve el mapa con el algoritmo AStar
         {
             Dictionary<Posicion, Node> seen, close;
             LinkedList<Posicion> sol;
-
 
             sol = new LinkedList<Posicion>();
             seen = new Dictionary<Posicion, Node>();
@@ -57,7 +55,7 @@ namespace AStar
             Posicion pAux = new Posicion();
             Posicion p2 = new Posicion();
 
-            Node aux = creaNodo(pActivo.x, pActivo.y, null);
+            Node aux = CreaNodo(pActivo.x, pActivo.y, null);
             Node ch = null, compara;
             pAux.x = aux.x; pAux.y = aux.y;
             seen.Add(pAux, aux);
@@ -76,28 +74,28 @@ namespace AStar
                             p2.x = aux.x + arr.x; p2.y = aux.y + arr.y;
                             if (aux.y - 1 >= 0 && !close.ContainsKey(p2))
                             {
-                                ch = creaNodo(aux.x + arr.x, aux.y + arr.y, aux); pAux.x = ch.x; pAux.y = ch.y;
+                                ch = CreaNodo(aux.x + arr.x, aux.y + arr.y, aux); pAux.x = ch.x; pAux.y = ch.y;
                             }
                             break;
                         case 1:
                             p2.x = aux.x + abj.x; p2.y = aux.y + abj.y;
                             if (aux.y + 1 < alto && !close.ContainsKey(p2))
                             {
-                                ch = creaNodo(aux.x + abj.x, aux.y + abj.y, aux); pAux.x = ch.x; pAux.y = ch.y;
+                                ch = CreaNodo(aux.x + abj.x, aux.y + abj.y, aux); pAux.x = ch.x; pAux.y = ch.y;
                             }
                             break;
                         case 2:
                             p2.x = aux.x + der.x; p2.y = aux.y + der.y;
                             if (aux.x + 1 < ancho && !close.ContainsKey(p2))
                             {
-                                ch = creaNodo(aux.x + der.x, aux.y + der.y, aux); pAux.x = ch.x; pAux.y = ch.y;
+                                ch = CreaNodo(aux.x + der.x, aux.y + der.y, aux); pAux.x = ch.x; pAux.y = ch.y;
                             }
                             break;
                         case 3:
                             p2.x = aux.x + izq.x; p2.y = aux.y + izq.y;
                             if (aux.x - 1 >= 0 && !close.ContainsKey(p2))
                             {
-                                ch = creaNodo(aux.x + izq.x, aux.y + izq.y, aux); pAux.x = ch.x; pAux.y = ch.y;
+                                ch = CreaNodo(aux.x + izq.x, aux.y + izq.y, aux); pAux.x = ch.x; pAux.y = ch.y;
                             }
                             break;
                     }
@@ -142,12 +140,14 @@ namespace AStar
             return sol;
         }
 
-        Node creaNodo(int x, int y, Node padre)
+        Node CreaNodo(int x, int y, Node padre)
         {
 
-            Node aux = new Node();
-            aux.x = x;
-            aux.y = y;
+            Node aux = new Node
+            {
+                x = x,
+                y = y
+            };
             aux.terreno = mapa[aux.y, aux.x];
             if (padre != null) { aux.gCost = padre.gCost + 1 + aux.terreno; aux.parent = padre; }
             else

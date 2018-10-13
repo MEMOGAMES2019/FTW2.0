@@ -1,18 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Script para las estrellas obtenidas al llegar a la meta. Se encarga de la "animación" tanto en escala como en posición.
 /// </summary>
-
-public class EstrellaPremio : MonoBehaviour {
+public class EstrellaPremio : MonoBehaviour
+{
 
     bool move = false;                                                  //Flag que controla si tiene que actualizarse la animación.
     float x = 426, y = 200;                                             //Controlan la posición de la estrella.
     float size = 0.24f;                                                 //Controlan el tamaño.
 
-	void Update () {
+    void Update()
+    {
         if (move)
         {
             float incrX = 300 * Time.deltaTime;
@@ -29,7 +28,8 @@ public class EstrellaPremio : MonoBehaviour {
             transform.localScale = new Vector3(size, size, size);
             if (x + y == 0) move = false;
         }
-	}
+    }
+
     private void OnEnable()
     {
         move = true;

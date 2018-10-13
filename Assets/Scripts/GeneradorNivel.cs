@@ -8,20 +8,19 @@
 
 using UnityEngine;
 #if UNITY_EDITOR
-    using UnityEditor;
+using UnityEditor;
 #endif
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
 public class GeneradorNivel : MonoBehaviour
 {
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
     /// <summary>
     /// Método llamado cuando se selecciona la opción del editor.
     /// </summary>
     [MenuItem("Find The Way/Generar Nivel")]
-    public static void buildLevel()
+    public static void BuildLevel()
     {
         var path = EditorUtility.OpenFilePanel("Selecciona fichero de texto", "", "txt"); //Declara variable Path donde se guarda la raiz del archivo a leer
 
@@ -31,7 +30,7 @@ public class GeneradorNivel : MonoBehaviour
         if (!CheckEmptyRootNode()) 												//?????? Ver mas abajo el metodo
             return;																//Creo que comprueba que la escena este vacia. Si la escena contiene elementos termina el metodo.
 
-        initPrefabsBD();														//Llamada al metodo initPrefabsBD() - VER METODO ABAJO
+        InitPrefabsBD();														//Llamada al metodo initPrefabsBD() - VER METODO ABAJO
 
         GameObject root = GameObject.Find("Nivel");                         //Declara e inicializa el GO root como el GO llamado Static.
 
@@ -60,7 +59,7 @@ public class GeneradorNivel : MonoBehaviour
                     Object prefab = prefabs[c];									//Declara e Inicia un objeto llamado prefab que contiene el objeto "c" de prefabs
                     if (prefab != null)
                     {											//Si no da null...
-                        createObject(prefab, root, new Vector3(x, -y, 0));      //... crea el objeto prefab obtenido de prefabs[c], del GameObject padre root ¿?, en la posicion x,-y actua
+                        CreateObject(prefab, root, new Vector3(x, -y, 0));      //... crea el objeto prefab obtenido de prefabs[c], del GameObject padre root ¿?, en la posicion x,-y actua
                     }
                 }
                 y++;															//Aumentamos y, pasamos a la siguiente fila del archivo de texto
@@ -80,8 +79,10 @@ public class GeneradorNivel : MonoBehaviour
 
         if (sceneRoot == null)													//Si no encuentra ese objeto...
         {
-            sceneRoot = new GameObject();										//Inicializa sceneRoot como un nuevo GO vacio...
-            sceneRoot.name = "Nivel";											//... y le da el nombre Static.
+            sceneRoot = new GameObject
+            {
+                name = "Nivel"                                          //... y le da el nombre Static.
+            };										//Inicializa sceneRoot como un nuevo GO vacio...
         }
 
         if (sceneRoot.transform.childCount > 0)									//Si sceneRoot es un objeto con ¿'hijos'? en su gerarquia...
@@ -118,15 +119,15 @@ public class GeneradorNivel : MonoBehaviour
 
     static Dictionary<char, Object> prefabs;								//Genera un indice de relaciones entre caracter y objetos llamado 'prefabs'
 
-    private static void initPrefabsBD()										//Metodo llamado en BuildLevel
+    private static void InitPrefabsBD()										//Metodo llamado en BuildLevel
     {
         if (prefabs == null)												//Si la biblioteca/diccionario prefabs esta vacia...
             prefabs = new Dictionary<char, Object>();						//inicializa la biblioteca/diccionario.
         foreach (var info in all)											//por cada variable 'info' dentro de todo
-            addPrefab(info.code, info.file);								//llama metodo añadir prefab con los parametros info.code, info.file. ¿De donde vienen estos parametros?
+            AddPrefab(info.code, info.file);								//llama metodo añadir prefab con los parametros info.code, info.file. ¿De donde vienen estos parametros?
     }
 
-    private static void addPrefab(char key, string prefabName)							//Metodo añade prefab. ¿Private es un public que afecta solo a este componente? No, eso seria static. ¿Que hace?
+    private static void AddPrefab(char key, string prefabName)							//Metodo añade prefab. ¿Private es un public que afecta solo a este componente? No, eso seria static. ¿Que hace?
     {																					//Este metodo sirve para crear nuevas asociaciones de caracteres de nuestro texto con prefabs de unity																		
         if (prefabs.ContainsKey(key))													//Si la biblioteca contiene el caracter key de la llamada es que ya esta utilizado...
             // La BD ya está inicializada (por otra invocación a la opción del menú)
@@ -148,7 +149,7 @@ public class GeneradorNivel : MonoBehaviour
     /// <param name="prefab"></param>
     /// <param name="parent"></param>
     /// <param name="pos"></param>
-    static GameObject createObject(Object prefab, GameObject parent, Vector3 pos)		//Crea el objeto prefab, del objeto padre parent (no entiendo la funcion de esto), en la posicion pos)
+    static GameObject CreateObject(Object prefab, GameObject parent, Vector3 pos)		//Crea el objeto prefab, del objeto padre parent (no entiendo la funcion de esto), en la posicion pos)
     {
         GameObject go;																	//Declaramos un nuevo GameObject llamado go
         go = PrefabUtility.InstantiatePrefab(prefab) as GameObject;						//Inicializamos go como el objeto solicitado prefab.

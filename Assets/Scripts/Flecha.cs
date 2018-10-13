@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Script de las flechas de dirección del coche. Detectan el click y avisan al coche.
 /// </summary>
-
-public class Flecha : MonoBehaviour {
+public class Flecha : MonoBehaviour
+{
 
     public GameObject coche;
     public AudioClip flecha;
@@ -14,54 +12,68 @@ public class Flecha : MonoBehaviour {
 
     bool cocheParado = false;
 
-    void Start () {
+    void Start()
+    {
         audioSource = Camera.main.GetComponent<AudioSource>();
-	}
-	
-	//Comprueba si se ha hecho click sobre ella y avisa al coche.
+    }
+
+    /// <summary>
+    /// Comprueba si se ha hecho click sobre ella y avisa al coche.
+    /// </summary>
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
         {
             audioSource.clip = flecha;
             audioSource.Play();
-            coche.GetComponent<Coche>().onClick(this.gameObject.name);
+            coche.GetComponent<Coche>().OnClick(this.gameObject.name);
         }
 
     }
-    //Activa la flecha pero no la dibuja.
-    public void doStuff()
+
+    /// <summary>
+    /// Activa la flecha pero no la dibuja.
+    /// </summary>
+    public void DoStuff()
     {
         this.gameObject.SetActive(true);
         this.gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
-   
-    //Método que recibe el estado del coche.(Parado o moviendose)
-    public void estadoCoche(bool estado)
+
+    /// <summary>
+    /// Método que recibe el estado del coche.
+    /// </summary>
+    /// <param name="estado">Estado del coche: Parado o moviendose </param>
+    public void EstadoCoche(bool estado)
     {
         cocheParado = estado;
         layer = 0;
     }
 
     int layer;
-    //Método que comprueba si la flecha está sobre la carretera o 
-    //sobre el césped basándose en la capa de física con la que colisiona.
+    /// <summary>
+    /// Método que comprueba si la flecha está sobre la carretera o 
+    /// sobre el césped basándose en la capa de física con la que colisiona.
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerStay(Collider other)
     {
         if (cocheParado)
         {
             layer += other.gameObject.layer;
-            if(layer == 16)this.gameObject.SetActive(false);
+            if (layer == 16) this.gameObject.SetActive(false);
         }
     }
 
-    //Método que se ejecuta al final de la actualización y muestra la flechas de nuevo.
     float time = 0.1f;
+    /// <summary>
+    /// Método que se ejecuta al final de la actualización y muestra la flechas de nuevo.
+    /// </summary>
     private void LateUpdate()
     {
         time -= Time.deltaTime;
-        
-        if (cocheParado && time <=0)
+
+        if (cocheParado && time <= 0)
         {
             time = 0.1f;
             this.gameObject.GetComponent<MeshRenderer>().enabled = true;
