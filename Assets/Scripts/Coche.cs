@@ -5,25 +5,89 @@
 /// </summary>
 public class Coche : MonoBehaviour
 {
-    bool moving = false;                                                    //Controla si el coche se está moviendo o no.
-    bool paused = false;                                                    //Controla si el juego está pausado o no.
-    float x = 0, y = 0;                                                         //Controla la posición del coche.
-    float vel = 0.1f;                                                         //Velocidad del coche.
-    int[] incr = new int[4];                                                //Array que va a contener las direcciones al girar.
-    int dir = 0;                                                            //Guarda la dirección a la que nos movemos.
+    #region ATRIBUTOS
 
-    public GameObject[] flechas = new GameObject[3];                        //Array que contiene las tres flechas de dirección.
-    public GameObject player;                                               //Objeto coche
-    public GameObject combustible;                                          //Objeto del GUI que muestra el combustible
+    /// <summary>
+    /// Controla si el coche se está moviendo.
+    /// </summary>
+    bool moving  = false;
 
-    private GameObject bar;                                                 //Barra de combustible dentro del objeto que muestra el combustible.
-    private float totalEnergy;                                              //Cantidad total de combustible.
-    private RectTransform rt;                                               //Dimensiones de la barra de combustible.
+    /// <summary>
+    /// Controla si el juego está pausado o no.
+    /// </summary>
+    bool paused  = false;
 
-    public float consumo = 1f;                                              //Cantidad de consumo por segundo
-    private float consumido;                                                //Total de lo consumido.
+    /// <summary>
+    /// Controla la posición X del coche.
+    /// </summary>
+    float x  = 0;
 
-    private GameObject GM;                                                  //Referencia al GM.
+    /// <summary>
+    /// Controla la posición Y del coche.
+    /// </summary>
+    float y = 0;
+
+    /// <summary>
+    /// Velocidad del coche.
+    /// </summary>
+    float vel = 0.1f;
+
+    /// <summary>
+    /// Array que va a contener las direcciones al girar.
+    /// </summary>
+    int[] incr = new int[4];
+
+    /// <summary>
+    /// Guarda la dirección a la que se mueve el coche.
+    /// </summary>
+    int dir = 0;
+
+    /// <summary>
+    /// Array que contiene las tres flechas de dirección.
+    /// </summary>
+    public GameObject[] flechas = new GameObject[3];
+
+    /// <summary>
+    /// Objeto coche.
+    /// </summary>
+    public GameObject player;
+
+    /// <summary>
+    /// Objeto del GUI que muestra el combustible.
+    /// </summary>
+    public GameObject combustible;
+
+    /// <summary>
+    /// Barra de combustible dentro del objeto que muestra el combustible.
+    /// </summary>
+    private GameObject bar;
+
+    /// <summary>
+    /// Cantidad total de combustible.
+    /// </summary>
+    private float totalEnergy;
+
+    /// <summary>
+    /// Dimensiones de la barra de combustible.
+    /// </summary>
+    private RectTransform rt;
+
+    /// <summary>
+    /// Cantidad de consumo por segundo.
+    /// </summary>
+    public float consumo = 1f;
+
+    /// <summary>
+    /// Total de lo consumido.
+    /// </summary>
+    private float consumido;
+
+    /// <summary>
+    /// Referencia al GM.
+    /// </summary>
+    private GameObject GM;
+
+    #endregion
 
     void Start()
     {
