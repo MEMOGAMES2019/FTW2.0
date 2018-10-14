@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Script Game Manager. Se encarga de centralizar operaciones como llamar al canvas, poner el juego en pausa, controlar el estado de la partida...
 /// </summary>
-public class GM : MonoBehaviour
+public class GMTutorial : MonoBehaviour
 {
 
     //Atributos para el algoritmo de pathfinding A*
@@ -64,8 +64,18 @@ public class GM : MonoBehaviour
     public int consumoIdeal;
 
 
+    public GameObject manoMapa, manoPath, manoCombustible;
+    public GameObject[] cartelesTutorial;
+    int indTutorial;
+
     void Start()
     {
+        manoMapa.gameObject.SetActive(false);
+        manoPath.gameObject.SetActive(false);
+        manoCombustible.gameObject.SetActive(false);
+        foreach (GameObject go in cartelesTutorial) go.gameObject.SetActive(false);
+        indTutorial = 0;
+
         nivel = GameObject.Find("Nivel").gameObject;
 
         //Se inicializan los atributos para el A*
@@ -128,8 +138,9 @@ public class GM : MonoBehaviour
     /// </summary>
     public void OnMapClicked(GameObject texto)
     {
+        actualizaTutorial();
         int num = int.Parse(texto.GetComponent<Text>().text);
-        if ( num > 0)
+        if (num > 0)
         {
             paused = !paused;
             coche.transform.Find("Coche").gameObject.GetComponent<Coche>().OnPause();
@@ -153,7 +164,7 @@ public class GM : MonoBehaviour
             }
 
         }
-        
+
     }
 
     /// <summary>
@@ -176,5 +187,50 @@ public class GM : MonoBehaviour
             for (int i = 0; i < numEstr; i++)
                 panelWin.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(true);
         }
+    }
+    void actualizaTutorial()
+    {
+        switch (indTutorial)
+        {
+            case 0:
+                coche.transform.Find("Coche").gameObject.GetComponent<Coche>().switchOff();
+                manoMapa.SetActive(true);
+                cartelesTutorial[indTutorial].gameObject.SetActive(true);
+                break;
+            case 1:
+                manoMapa.SetActive(false);
+                cartelesTutorial[indTutorial-1].gameObject.SetActive(false);
+                manoPath.SetActive(true);
+                cartelesTutorial[indTutorial].gameObject.SetActive(true);
+                break;
+            case 2:
+                cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
+                manoPath.SetActive(false);
+                cartelesTutorial[indTutorial].gameObject.SetActive(true);
+                break;
+            case 3:
+                cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
+                cartelesTutorial[indTutorial].gameObject.SetActive(true);
+                coche.transform.Find("Coche").gameObject.GetComponent<Coche>().switchOff();
+                break;
+          
+            case 4:
+                cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
+                cartelesTutorial[indTutorial].gameObject.SetActive(true);
+                manoCombustible.gameObject.SetActive(true);
+                break;
+            case 5:
+                cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
+                manoCombustible.gameObject.SetActive(false);
+                break;
+
+        }
+        indTutorial++;
+    }
+    private void Update()
+    {
+
+        if (!coche.transform.Find("Coche").GetComponent<Coche>().isMoving() && indTutorial == 0) actualizaTutorial();
+        if ((indTutorial == 2 || indTutorial >= 4) && Input.GetMouseButtonDown(0)) actualizaTutorial();
     }
 }

@@ -13,6 +13,11 @@ public class Coche : MonoBehaviour
     bool moving  = false;
 
     /// <summary>
+    /// Controla si el coche se está activo
+    /// </summary>
+    bool sleep = false;
+
+    /// <summary>
     /// Controla si el juego está pausado o no.
     /// </summary>
     bool paused  = false;
@@ -112,13 +117,13 @@ public class Coche : MonoBehaviour
 
     void Update()
     {
-        if (moving) Move();
+        if (moving && !sleep) Move();
     }
 
     //Si se ha pulsado alguna flecha se comprueba cual es, se gira el coche y se actualiza la dirección si es necesario y se llama a arrancar.
     public void OnClick(string s)
     {
-        if (!paused)
+        if (!paused && !sleep)
         {
             if (s == "Derecha")
             {
@@ -203,4 +208,6 @@ public class Coche : MonoBehaviour
         rt.localPosition = new Vector3(-x, y, z);
     }
     public int GetConsumoTotal() { return (int)consumido; }
+    public bool isMoving() { return moving; }
+    public void switchOff() { sleep = !sleep; }
 }
