@@ -11,3 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FTW2.0.unity
     guid: 93d026edfa549494c8d392836a8d1199
+  m_configObjects: {}
