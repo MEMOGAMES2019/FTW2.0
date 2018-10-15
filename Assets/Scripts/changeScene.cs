@@ -1,25 +1,28 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
 public class changeScene : MonoBehaviour
 {
-
-    // Use this for initialization
-    void Start() { }
-
-    // Update is called once per frame
-    void Update() { }
-
+    public Animator transicion;
     public void ChangeScene(string scene)
     {
         if (scene != "exit")
-            SceneManager.LoadScene(scene);
+            StartCoroutine(loadScene(scene));
         else
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #else
 		Application.Quit();
 #endif
+    }
+
+    IEnumerator loadScene(string scene)
+    {
+        transicion.SetTrigger("end");
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(scene);
     }
 
 }
