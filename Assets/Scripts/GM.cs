@@ -140,14 +140,18 @@ public class GM : MonoBehaviour
             {
                 x = Mathf.FloorToInt(coche.gameObject.transform.position.x);
                 y = Mathf.FloorToInt(-coche.gameObject.transform.position.y);
-                Debug.Log(x + " " + y);
+                Posicion pos = coche.GetComponentInChildren<Coche>().ultimaCasilla();
+                mapa[pos.y, pos.x] = 1000;
                 Find(x, y, true);
+
             }
             else
             {
 
                 Debug.Log(x + " " + y);
                 Find(x, y, false);
+                Posicion pos = coche.GetComponentInChildren<Coche>().ultimaCasilla();
+                mapa[pos.y, pos.x] = 1;
                 num--;
                 texto.GetComponent<Text>().text = num.ToString();
             }

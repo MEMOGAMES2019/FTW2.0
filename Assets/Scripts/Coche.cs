@@ -196,8 +196,17 @@ public class Coche : MonoBehaviour
             go.GetComponent<Flecha>().EstadoCoche(true);
             go.GetComponent<Flecha>().DoStuff();
         }
-    }
 
+
+    }
+    public Posicion ultimaCasilla()
+    {
+        Posicion pos; pos.x = (int)transform.position.x - incr[dir];
+        int resta = dir - 1;
+        if (resta < 0) resta = 3;
+        pos.y = (int)(transform.position.y*-1) - incr[resta];
+        return pos;
+    }
     //Actualiza la barra de combustible según el consumo.
     public void SetPercentageOfEnergy(float newValue)
     {
