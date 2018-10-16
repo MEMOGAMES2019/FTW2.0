@@ -1,38 +1,60 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelManager : MonoBehaviour {
+public class LevelManager : MonoBehaviour
+{
+    /// <summary>
+    /// Niveles del juego.
+    /// </summary>
+    public List<GameObject> niveles;
+    /// <summary>
+    /// Conjuntos de mapas de los niveles
+    /// </summary>
+    public List<GameObject> mapas;
 
-    // Use this for initialization
-    public GameObject[] niveles;
-    public GameObject[] mapas;
-	void Start () {
-        for (int i = 1; i < niveles.Length; i++)
-            niveles[i].gameObject.GetComponent<Button>().interactable = false;
-
-        
-        if(PlayerPrefs.GetInt("Nivel1") == 2)
+    void Start()
+    {
+        int index = 0;
+        foreach (GameObject nivel in niveles)
         {
-            Debug.Log("IN");
-            niveles[1].gameObject.GetComponent<Button>().interactable = true;
-            niveles[1].transform.Find("Block").gameObject.SetActive(false);
-        }
-
-        for(int i = 0; i < mapas.Length; i++)
-        {
-            for(int mapa = 0; mapa < 3; mapa++)
+            if (index == 0)
+                nivel.gameObject.GetComponent<Button>().interactable = true;
+            else
             {
-                string s = "N" + (i + 1).ToString() + "mapa" + (mapa+1).ToString();
-                int m = PlayerPrefs.GetInt(s);
-                //int m1 = PlayerPrefs.GetInt("N1mapa1");
-                for (int j = 1; j <= m; j++)
-                {
-                    mapas[i].transform.GetChild(mapa).transform.GetChild(j).transform.GetChild(0).gameObject.SetActive(false);
-                }
+                /* Cogemos los mapas del nivel anterior donde se han superado con al menos 2 estrellas. Ejemplo: Nivel1 */
+                string mapa2Star = string.Concat("Nivel", index);
+
+                /* Comprobamos las condiciones para desbloquear el nivel */
+                bool desbloqueo = PlayerPrefs.HasKey(mapa2Star) && PlayerPrefs.GetInt(mapa2Star) >= 2;
+
+                nivel.gameObject.GetComponent<Button>().interactable = desbloqueo;
+                nivel.transform.Find("Block").gameObject.SetActive(!desbloqueo);
             }
-            
+            ++index;
         }
-	}
+
+        /* Recorremos los conjuntos de mapas de los diferentes niveles */
+        int numNivel = 1;
+        foreach (GameObject cjtoMapa in mapas)
+        {
+            /* Recorremos cada mapa (cada botón) */
+            int numMapa = 1;
+            foreach (Button mapa in cjtoMapa.transform.GetComponentsInChildren<Button>())
+            {
+                /* Nombre del mapa. Ejemplo: N1mapa1 */
+                string s = string.Concat("N", numNivel, "mapa", numMapa);
+                int m = PlayerPrefs.HasKey(s) ? PlayerPrefs.GetInt(s) : 0;
+
+                /* Recorremos todas las estrellas conseguidas en ese mapa.
+                 * Empezamos por 1 ya que el primer hijo es el texto */
+                for (int j = 1; j <= m; ++j)
+                {
+                    mapa.transform.GetChild(j).transform.GetChild(0).gameObject.SetActive(false);
+                }
+                ++numMapa;
+            }
+            ++numNivel;
+        }
+    }
 }

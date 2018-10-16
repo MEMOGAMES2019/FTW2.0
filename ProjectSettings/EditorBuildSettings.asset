@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nivel3/N3mapa3.unity
     guid: f5980714a5a03b3439718e6a74d52f3c
+  - enabled: 1
+    path: Assets/Scenes/LevelSelector.unity
+    guid: 8895cf0e2a36ec94e8a9f9475934e30a
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: c300f7db8498ab1418a2cbd8132d1e69
   m_configObjects: {}
