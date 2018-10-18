@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using RAGE.Analytics;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,6 +20,7 @@ public class ChangeScene : MonoBehaviour
 
     IEnumerator LoadScene(string scene)
     {
+        Tracker.T.Accessible.Accessed(scene, AccessibleTracker.Accessible.Screen);
         transicion.SetTrigger("end");
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(scene);
