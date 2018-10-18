@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0040869117, g: 0.0002236006, b: 0.000000057131658,
+  m_IndirectSpecularColor: {r: 0.0040869075, g: 0.00022360026, b: 0.000000057131658,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -27917,6 +27917,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4608268793167926, guid: b4765182917a269489257f4524c513ee,
     type: 2}
   m_PrefabInternal: {fileID: 1267240044}
+--- !u!1 &866816724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1658850938989692, guid: 2368d04e5926afe498ac3b9d840c089b,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 866816726}
+  - component: {fileID: 866816725}
+  m_Layer: 0
+  m_Name: Tracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &866816725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114913067745731754, guid: 2368d04e5926afe498ac3b9d840c089b,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 866816724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f96f0a1591a944f801ecb456e9e6a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rawCopy: 0
+  flushInterval: 3
+  checkInterval: 3
+  storageType: net
+  traceFormat: xapi
+  host: https://analytics.e-ucm.es/api/proxy/gleaner/collector/
+  trackingCode: 5bc86162e4c4b3008c4b96f1t9wmjmq7fx
+  debug: 1
+  username: 
+  password: 
+--- !u!4 &866816726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4255015774662002, guid: 2368d04e5926afe498ac3b9d840c089b,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 866816724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &867142002
 Prefab:
   m_ObjectHideFlags: 0
@@ -30773,7 +30826,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 972751260}
-  - component: {fileID: 972751259}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -30781,18 +30833,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &972751259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 972751258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dae39c6d79c453e428d44d44a226cc4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transicion: {fileID: 82288374}
 --- !u!4 &972751260
 Transform:
   m_ObjectHideFlags: 0
@@ -64631,6 +64671,7 @@ GameObject:
   - component: {fileID: 1886462349}
   - component: {fileID: 1886462348}
   - component: {fileID: 1886462347}
+  - component: {fileID: 1886462350}
   m_Layer: 0
   m_Name: CamaraPausa
   m_TagString: MainCamera
@@ -64698,6 +64739,17 @@ Transform:
   m_Father: {fileID: 767327070}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 16.978, y: 0, z: 0}
+--- !u!114 &1886462350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1886462346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4785d5a7f452b8f4ba09f1468f35dd8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1886513027 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4608268793167926, guid: b4765182917a269489257f4524c513ee,
@@ -70786,7 +70838,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 972751259}
+      - m_Target: {fileID: 0}
         m_MethodName: Change
         m_Mode: 5
         m_Arguments:
