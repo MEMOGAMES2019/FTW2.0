@@ -63,6 +63,15 @@ public class GM : MonoBehaviour
     /// </summary>
     public int consumoIdeal;
 
+    /// <summary>
+    /// Nivel del mapa.
+    /// </summary>
+    public int numNivel;
+
+    /// <summary>
+    /// Número de mapa.
+    /// </summary>
+    public int numMapa;
 
     void Start()
     {
@@ -108,7 +117,6 @@ public class GM : MonoBehaviour
     /// <param name="x"></param>
     /// <param name="y"></param>
     /// <param name="mostrar"></param>
-
     public void Find(int x, int y, bool mostrar)
     {
         sol = solver.Solve(x, y, meta);
@@ -129,7 +137,7 @@ public class GM : MonoBehaviour
     public void OnMapClicked(GameObject texto)
     {
         int num = int.Parse(texto.GetComponent<Text>().text);
-        if ( num > 0)
+        if (num > 0)
         {
             paused = !paused;
             coche.transform.Find("Coche").gameObject.GetComponent<Coche>().OnPause();
@@ -157,7 +165,7 @@ public class GM : MonoBehaviour
             }
 
         }
-        
+
     }
 
     /// <summary>
@@ -176,6 +184,16 @@ public class GM : MonoBehaviour
             if (consumo <= consumoIdeal + 10) numEstr = 3;
             else if (consumo <= consumoIdeal + 30) numEstr = 2;
             else if (consumo <= consumoIdeal + 50) numEstr = 1;
+
+            /* Guardamos el número de estrellas que hemos conseguido si el número de estrellas 
+             * es mayor al que teníamos anteriormente */
+            string nivelMapa = string.Concat("Nivel", this.numNivel, "Mapa", this.numMapa);
+            int estrellasActuales = PlayerPrefs.HasKey(nivelMapa) ? PlayerPrefs.GetInt(nivelMapa) : 0;
+
+            if (numEstr > estrellasActuales)
+            {
+                PlayerPrefs.SetInt(nivelMapa, numEstr);
+            }
 
             for (int i = 0; i < numEstr; i++)
                 panelWin.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(true);

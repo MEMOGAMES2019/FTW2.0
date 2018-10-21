@@ -8,10 +8,16 @@ public class LevelManager : MonoBehaviour
     /// Niveles del juego.
     /// </summary>
     public List<GameObject> niveles;
+
     /// <summary>
     /// Conjuntos de mapas de los niveles
     /// </summary>
     public List<GameObject> mapas;
+
+    /// <summary>
+    /// Nivel.
+    /// </summary>
+    public int level;
 
     void Start()
     {
@@ -35,16 +41,22 @@ public class LevelManager : MonoBehaviour
         }
 
         /* Recorremos los conjuntos de mapas de los diferentes niveles */
-        int numNivel = 1;
         foreach (GameObject cjtoMapa in mapas)
         {
             /* Recorremos cada mapa (cada botón) */
             int numMapa = 1;
+            string nivel = string.Concat("Nivel", level);
+            int numNivelesPasados = 0;
+
             foreach (Button mapa in cjtoMapa.transform.GetComponentsInChildren<Button>())
             {
                 /* Nombre del mapa. Ejemplo: N1mapa1 */
-                string s = string.Concat("N", numNivel, "mapa", numMapa);
+                string s = string.Concat("N", level, "mapa", numMapa);
                 int m = PlayerPrefs.HasKey(s) ? PlayerPrefs.GetInt(s) : 0;
+                if (m >= 2)
+                {
+                    ++numNivelesPasados;
+                }
 
                 /* Recorremos todas las estrellas conseguidas en ese mapa.
                  * Empezamos por 1 ya que el primer hijo es el texto */
@@ -54,7 +66,8 @@ public class LevelManager : MonoBehaviour
                 }
                 ++numMapa;
             }
-            ++numNivel;
+
+            PlayerPrefs.SetInt(nivel, numNivelesPasados);
         }
     }
 }
