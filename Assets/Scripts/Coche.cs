@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using RAGE.Analytics;
 
 /// <summary>
 /// Script que contiene el comportamiento del coche.
@@ -92,6 +93,10 @@ public class Coche : MonoBehaviour
     /// </summary>
     private GameObject GM;
 
+    private int derecha = 0;
+    private int izquierda = 0;
+    private int recto = 0;
+
     #endregion
 
     void Start()
@@ -120,7 +125,10 @@ public class Coche : MonoBehaviour
         if (moving && !sleep) Move();
     }
 
-    //Si se ha pulsado alguna flecha se comprueba cual es, se gira el coche y se actualiza la dirección si es necesario y se llama a arrancar.
+    /// <summary>
+    /// Si se ha pulsado alguna flecha se comprueba cual es, se gira el coche 
+    /// y se actualiza la dirección si es necesario y se llama a arrancar.
+    /// </summary>
     public void OnClick(string s)
     {
         if (!paused && !sleep)
@@ -130,6 +138,8 @@ public class Coche : MonoBehaviour
                 player.transform.position = new Vector3(player.transform.position.x + x * 8, player.transform.position.y + y * 8, player.transform.position.z);
                 player.gameObject.transform.Rotate(new Vector3(0, 0, -90));
                 dir = (dir + 1) % 4;
+                ++derecha;
+                Tracker.T.setVar("Derecha", derecha);
             }
             else if (s == "Izquierda")
             {
@@ -137,8 +147,14 @@ public class Coche : MonoBehaviour
                 player.gameObject.transform.Rotate(new Vector3(0, 0, 90));
                 dir = (dir - 1);
                 if (dir < 0) dir = 3;
+                ++izquierda;
+                Tracker.T.setVar("Izquierda", izquierda);
             }
-
+            else
+            {
+                ++recto;
+                Tracker.T.setVar("Recto", recto);
+            }
             Arranca();
         }
     }

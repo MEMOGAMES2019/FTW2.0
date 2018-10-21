@@ -1,4 +1,5 @@
 ﻿using AStar;
+using RAGE.Analytics;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -174,6 +175,7 @@ public class GM : MonoBehaviour
     /// <param name="win"></param>
     public void GameOver(bool win)
     {
+        string nivelMapa = string.Concat("N", this.numNivel, "mapa", this.numMapa);
         coche.transform.Find("Coche").gameObject.GetComponent<Coche>().OnPause();
 
         if (win) //Si se ha ganado se activa el panel de victoria y se dan las estrellas correspondientes según el consumo.
@@ -187,7 +189,10 @@ public class GM : MonoBehaviour
 
             /* Guardamos el número de estrellas que hemos conseguido si el número de estrellas 
              * es mayor al que teníamos anteriormente */
-            string nivelMapa = string.Concat("Nivel", this.numNivel, "Mapa", this.numMapa);
+            Tracker.T.setVar("Estrellas " + nivelMapa, numEstr);
+
+            Tracker.T.Completable.Completed(nivelMapa, CompletableTracker.Completable.Level, true);
+
             int estrellasActuales = PlayerPrefs.HasKey(nivelMapa) ? PlayerPrefs.GetInt(nivelMapa) : 0;
 
             if (numEstr > estrellasActuales)
@@ -197,6 +202,10 @@ public class GM : MonoBehaviour
 
             for (int i = 0; i < numEstr; i++)
                 panelWin.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(true);
+        }
+        else
+        {
+            Tracker.T.Completable.Completed(nivelMapa, CompletableTracker.Completable.Level, false);
         }
     }
 }
