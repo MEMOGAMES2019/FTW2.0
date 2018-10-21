@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeScene : MonoBehaviour
+public class changeScene : MonoBehaviour
 {
     public Animator transicion;
     public void Change(string scene)
