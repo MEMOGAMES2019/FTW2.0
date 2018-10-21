@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0040869075, g: 0.00022360026, b: 0.000000057131658,
+  m_IndirectSpecularColor: {r: 0.0040869094, g: 0.0002236005, b: 0.000000057131658,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -27943,7 +27943,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 866816724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7f96f0a1591a944f801ecb456e9e6a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 43c9a7c34d91bc044bca652e59700734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rawCopy: 0
@@ -27951,9 +27951,9 @@ MonoBehaviour:
   checkInterval: 3
   storageType: net
   traceFormat: xapi
-  host: https://analytics.e-ucm.es/api/proxy/gleaner/collector/
-  trackingCode: 5bc86162e4c4b3008c4b96f1t9wmjmq7fx
-  debug: 1
+  host: https://analytics.e-ucm.es/
+  trackingCode: 
+  debug: 0
   username: 
   password: 
 --- !u!4 &866816726
@@ -30826,6 +30826,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 972751260}
+  - component: {fileID: 972751259}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -30833,6 +30834,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &972751259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 972751258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae39c6d79c453e428d44d44a226cc4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transicion: {fileID: 82288374}
 --- !u!4 &972751260
 Transform:
   m_ObjectHideFlags: 0
@@ -70838,7 +70851,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 972751259}
         m_MethodName: Change
         m_Mode: 5
         m_Arguments:
@@ -70846,7 +70859,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: LevelSelector
+          m_StringArgument: LevelGeneralSelector
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
