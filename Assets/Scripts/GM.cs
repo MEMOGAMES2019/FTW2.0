@@ -109,6 +109,8 @@ public class GM : MonoBehaviour
         solver.ActualizaMapa(mapa);
         meta.x = Mathf.FloorToInt(metaO.transform.position.x); meta.y = Mathf.FloorToInt(-metaO.transform.position.y);
 
+        OnMapClicked(null);
+
     }
 
     /// <summary>
@@ -137,7 +139,8 @@ public class GM : MonoBehaviour
     /// </summary>
     public void OnMapClicked(GameObject texto)
     {
-        int num = int.Parse(texto.GetComponent<Text>().text);
+        int num = 100;
+        if (texto != null) num = int.Parse(texto.GetComponent<Text>().text);
         if (num > 0)
         {
             paused = !paused;
@@ -162,7 +165,7 @@ public class GM : MonoBehaviour
                 Posicion pos = coche.GetComponentInChildren<Coche>().ultimaCasilla();
                 mapa[pos.y, pos.x] = 1;
                 num--;
-                texto.GetComponent<Text>().text = num.ToString();
+                if (texto != null) texto.GetComponent<Text>().text = num.ToString();
             }
 
         }

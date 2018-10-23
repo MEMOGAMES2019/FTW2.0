@@ -109,6 +109,8 @@ public class GMTutorial : MonoBehaviour
         solver.ActualizaMapa(mapa);
         meta.x = Mathf.FloorToInt(metaO.transform.position.x); meta.y = Mathf.FloorToInt(-metaO.transform.position.y);
 
+        OnMapClicked(null);
+
     }
 
     /// <summary>
@@ -138,8 +140,13 @@ public class GMTutorial : MonoBehaviour
     /// </summary>
     public void OnMapClicked(GameObject texto)
     {
-        actualizaTutorial();
-        int num = int.Parse(texto.GetComponent<Text>().text);
+        if (indTutorial == 0 || indTutorial == 3)
+        {
+            actualizaTutorial();
+        }
+        else return;
+        int num = 100;
+        if (texto != null) num = int.Parse(texto.GetComponent<Text>().text);
         if (num > 0)
         {
             paused = !paused;
@@ -160,7 +167,7 @@ public class GMTutorial : MonoBehaviour
                 Debug.Log(x + " " + y);
                 Find(x, y, false);
                 num--;
-                texto.GetComponent<Text>().text = num.ToString();
+                if (texto != null) texto.GetComponent<Text>().text = num.ToString();
             }
 
         }
@@ -194,7 +201,6 @@ public class GMTutorial : MonoBehaviour
         {
             case 0:
                 coche.transform.Find("Coche").gameObject.GetComponent<Coche>().switchOff();
-                manoMapa.SetActive(true);
                 cartelesTutorial[indTutorial].gameObject.SetActive(true);
                 break;
             case 1:
@@ -206,11 +212,13 @@ public class GMTutorial : MonoBehaviour
             case 2:
                 cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
                 manoPath.SetActive(false);
+                manoMapa.SetActive(true);
                 cartelesTutorial[indTutorial].gameObject.SetActive(true);
                 break;
             case 3:
                 cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
                 cartelesTutorial[indTutorial].gameObject.SetActive(true);
+                manoMapa.SetActive(false);
                 coche.transform.Find("Coche").gameObject.GetComponent<Coche>().switchOff();
                 break;
           
@@ -231,6 +239,7 @@ public class GMTutorial : MonoBehaviour
     {
 
         if (!coche.transform.Find("Coche").GetComponent<Coche>().isMoving() && indTutorial == 0) actualizaTutorial();
-        if ((indTutorial == 2 || indTutorial >= 4) && Input.GetMouseButtonDown(0)) actualizaTutorial();
+        if (indTutorial != 3 && Input.GetMouseButtonDown(0)) actualizaTutorial();
+        //if ((indTutorial == 1 || indTutorial >= 4) && Input.GetMouseButtonDown(0)) actualizaTutorial();
     }
 }

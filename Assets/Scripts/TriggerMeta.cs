@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using UnityEngine.SceneManagement;
 /// <summary>
 /// Este script controla cuando el coche atraviesa la meta y avisa al GM.
 /// </summary>
@@ -14,6 +14,9 @@ public class TriggerMeta : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GM.GetComponent<GM>().GameOver(true);
+        if (SceneManager.GetActiveScene().name != "Tutorial")
+            GM.GetComponent<GM>().GameOver(true);
+        else
+            GM.GetComponent<GMTutorial>().GameOver(true);
     }
 }
