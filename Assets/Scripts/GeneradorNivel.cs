@@ -102,7 +102,7 @@ public class GeneradorNivel : MonoBehaviour
         public PrefabInfo(char c, string f) { code = c; file = f; } 			//Declaracion contenedor PrefabInfor con argumentos Char 'c' y String 'f', donde almacenamos la codificacion de letra junto a prefab.
     }
 
-    static PrefabInfo[] all = new PrefabInfo[] {								// Array que almacenalos valores con el vinculo entre el caracter elegido y el prefab que coloca en escena.
+    static readonly PrefabInfo[] all = new PrefabInfo[] {								// Array que almacenalos valores con el vinculo entre el caracter elegido y el prefab que coloca en escena.
 		new PrefabInfo('A', "Assets/Recursos/Prefab/CHorizontal.prefab"),			// Memorizamos que M coloca el prefab Muro.prefab
         new PrefabInfo('B', "Assets/Recursos/Prefab/CVertical.prefab"),
         new PrefabInfo('C', "Assets/Recursos/Prefab/EsquinaID.prefab"),

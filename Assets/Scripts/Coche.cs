@@ -11,7 +11,7 @@ public class Coche : MonoBehaviour
     /// <summary>
     /// Controla si el coche se está moviendo.
     /// </summary>
-    bool moving  = false;
+    bool moving = false;
 
     /// <summary>
     /// Controla si el coche se está activo
@@ -21,12 +21,12 @@ public class Coche : MonoBehaviour
     /// <summary>
     /// Controla si el juego está pausado o no.
     /// </summary>
-    bool paused  = false;
+    bool paused = false;
 
     /// <summary>
     /// Controla la posición X del coche.
     /// </summary>
-    float x  = 0;
+    float x = 0;
 
     /// <summary>
     /// Controla la posición Y del coche.
@@ -36,12 +36,12 @@ public class Coche : MonoBehaviour
     /// <summary>
     /// Velocidad del coche.
     /// </summary>
-    float vel = 0.1f;
+    readonly float vel = 0.1f;
 
     /// <summary>
     /// Array que va a contener las direcciones al girar.
     /// </summary>
-    int[] incr = new int[4];
+    readonly int[] incr = new int[4];
 
     /// <summary>
     /// Guarda la dirección a la que se mueve el coche.
@@ -159,7 +159,9 @@ public class Coche : MonoBehaviour
         }
     }
 
-    //Actualiza la posición del coche según el giro y actualiza la información de las flechas.
+    /// <summary>
+    /// Actualiza la posición del coche según el giro y actualiza la información de las flechas.
+    /// </summary>
     void Arranca()
     {
         x = incr[dir] * vel;
@@ -174,7 +176,9 @@ public class Coche : MonoBehaviour
     }
 
     float countdown = 0.25f;
-    //Método que actualiza la posición del coche y suma el consumo cada segundo.
+    /// <summary>
+    /// Método que actualiza la posición del coche y suma el consumo cada segundo.
+    /// </summary>
     void Move()
     {
         countdown -= Time.deltaTime;
@@ -195,14 +199,18 @@ public class Coche : MonoBehaviour
         player.transform.position = new Vector3(player.transform.position.x + x * (Time.deltaTime * 50), player.transform.position.y + y * (Time.deltaTime * 50), player.transform.position.z);
     }
 
-    //Este método es llamado al poner el juego en pausa
+    /// <summary>
+    /// Este método es llamado al poner el juego en pausa
+    /// </summary>
     public void OnPause()
     {
         paused = !paused;
     }
 
-    //Cuando el coche colisiona con un cruce o una intersección se llama a este método. 
-    //Al recibir la colisión, activa las flechas y las muestra.
+    /// <summary>
+    /// Cuando el coche colisiona con un cruce o una intersección se llama a este método. 
+    /// Al recibir la colisión, activa las flechas y las muestra.
+    /// </summary>
     private void OnCollisionEnter(Collision collision)
     {
         moving = false;
@@ -215,15 +223,18 @@ public class Coche : MonoBehaviour
 
 
     }
-    public Posicion ultimaCasilla()
+    public Posicion UltimaCasilla()
     {
         Posicion pos; pos.x = (int)transform.position.x - incr[dir];
         int resta = dir - 1;
         if (resta < 0) resta = 3;
-        pos.y = (int)(transform.position.y*-1) - incr[resta];
+        pos.y = (int)(transform.position.y * -1) - incr[resta];
         return pos;
     }
-    //Actualiza la barra de combustible según el consumo.
+
+    /// <summary>
+    /// Actualiza la barra de combustible según el consumo.
+    /// </summary>
     public void SetPercentageOfEnergy(float newValue)
     {
         float x = (newValue * totalEnergy) / 100;
@@ -233,6 +244,6 @@ public class Coche : MonoBehaviour
         rt.localPosition = new Vector3(-x, y, z);
     }
     public int GetConsumoTotal() { return (int)consumido; }
-    public bool isMoving() { return moving; }
-    public void switchOff() { sleep = !sleep; }
+    public bool IsMoving() { return moving; }
+    public void SwitchOff() { sleep = !sleep; }
 }

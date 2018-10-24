@@ -5,10 +5,20 @@
 /// </summary>
 public class EstrellaPremio : MonoBehaviour
 {
+    /// <summary>
+    /// Flag que controla si tiene que actualizarse la animación.
+    /// </summary>
+    bool move = false;
 
-    bool move = false;                                                  //Flag que controla si tiene que actualizarse la animación.
-    float x = 426, y = 200;                                             //Controlan la posición de la estrella.
-    float size = 0.24f;                                                 //Controlan el tamaño.
+    /// <summary>
+    /// Controlan la posición de la estrella.
+    /// </summary>
+    float x = 426, y = 200;
+
+    /// <summary>
+    /// Controlan el tamaño.
+    /// </summary>
+    float size = 0.24f;
 
     void Update()
     {

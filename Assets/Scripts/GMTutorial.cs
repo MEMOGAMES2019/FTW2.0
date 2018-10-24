@@ -200,12 +200,12 @@ public class GMTutorial : MonoBehaviour
         switch (indTutorial)
         {
             case 0:
-                coche.transform.Find("Coche").gameObject.GetComponent<Coche>().switchOff();
+                coche.transform.Find("Coche").gameObject.GetComponent<Coche>().SwitchOff();
                 cartelesTutorial[indTutorial].gameObject.SetActive(true);
                 break;
             case 1:
                 manoMapa.SetActive(false);
-                cartelesTutorial[indTutorial-1].gameObject.SetActive(false);
+                cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
                 manoPath.SetActive(true);
                 cartelesTutorial[indTutorial].gameObject.SetActive(true);
                 break;
@@ -219,9 +219,9 @@ public class GMTutorial : MonoBehaviour
                 cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
                 cartelesTutorial[indTutorial].gameObject.SetActive(true);
                 manoMapa.SetActive(false);
-                coche.transform.Find("Coche").gameObject.GetComponent<Coche>().switchOff();
+                coche.transform.Find("Coche").gameObject.GetComponent<Coche>().SwitchOff();
                 break;
-          
+
             case 4:
                 cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
                 cartelesTutorial[indTutorial].gameObject.SetActive(true);
@@ -237,8 +237,7 @@ public class GMTutorial : MonoBehaviour
     }
     private void Update()
     {
-
-        if (!coche.transform.Find("Coche").GetComponent<Coche>().isMoving() && indTutorial == 0) actualizaTutorial();
+        if (!coche.transform.Find("Coche").GetComponent<Coche>().IsMoving() && indTutorial == 0) actualizaTutorial();
         if (indTutorial != 3 && Input.GetMouseButtonDown(0)) actualizaTutorial();
         //if ((indTutorial == 1 || indTutorial >= 4) && Input.GetMouseButtonDown(0)) actualizaTutorial();
     }

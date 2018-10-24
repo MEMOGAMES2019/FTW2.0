@@ -23,8 +23,8 @@ namespace AStar
     {
         private Posicion arr, abj, der, izq;                                            //Los cuatro movimientos posibles de cada jugador
         private Posicion pDestino;
-        private int ancho, alto;
-
+        private readonly int ancho;
+        private readonly int alto;
         private int[,] mapa;
 
         public AStarSolver(int _ancho, int _alto)

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+
 /// <summary>
 /// Este script controla cuando el coche atraviesa la meta y avisa al GM.
 /// </summary>
