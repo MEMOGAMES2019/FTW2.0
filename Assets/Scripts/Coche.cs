@@ -204,6 +204,7 @@ public class Coche : MonoBehaviour
     /// </summary>
     public void OnPause()
     {
+        sleep = !sleep;
         paused = !paused;
     }
 
