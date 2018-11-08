@@ -73,8 +73,8 @@ namespace RAGE.Analytics
 #if !(UNITY_WEBPLAYER || UNITY_WEBGL)
             if (!System.IO.File.Exists("host.cfg"))
             {
-                hostfile.Add("host", new SimpleJSON.JSONData("https://analytics.e-ucm.es/api/proxy/gleaner/collector/"));
-                hostfile.Add("trackingCode", new SimpleJSON.JSONData("5bc86162e4c4b3008c4b96f1t9wmjmq7fx"));
+                hostfile.Add("host", new SimpleJSON.JSONData("https://analytics-test.e-ucm.es/api/proxy/gleaner/collector/"));
+                hostfile.Add("trackingCode", new SimpleJSON.JSONData("5be4222305ea050083483aa8izpp9w59eji"));
                 System.IO.File.WriteAllText("host.cfg", hostfile.ToString());
             }
             else
@@ -85,8 +85,8 @@ namespace RAGE.Analytics
             PlayerPrefs.SetString("trackingCode", hostfile["trackingCode"]);
             PlayerPrefs.Save();*/
 
-            PlayerPrefs.SetString("host", "https://analytics.e-ucm.es/api/proxy/gleaner/collector/");
-            PlayerPrefs.SetString("trackingCode", "5bc86162e4c4b3008c4b96f1t9wmjmq7fx");
+            PlayerPrefs.SetString("host", "https://analytics-test.e-ucm.es/api/proxy/gleaner/collector/");
+            PlayerPrefs.SetString("trackingCode", "5be4222305ea050083483aa8izpp9w59eji");
             PlayerPrefs.Save();
 
 
