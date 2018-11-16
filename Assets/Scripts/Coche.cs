@@ -81,7 +81,7 @@ public class Coche : MonoBehaviour
     /// <summary>
     /// Cantidad de consumo por segundo.
     /// </summary>
-    public float consumo = 1f;
+    float consumo = 1f;
 
     /// <summary>
     /// Total de lo consumido.
@@ -175,16 +175,16 @@ public class Coche : MonoBehaviour
         }
     }
 
-    float countdown = 0.25f;
+    float countdown = 0.20f;
     /// <summary>
-    /// Método que actualiza la posición del coche y suma el consumo cada segundo.
+    /// Método que actualiza la posición del coche y suma el consumo
     /// </summary>
     void Move()
     {
         countdown -= Time.deltaTime;
         if (countdown <= 0.0f)
         {
-            countdown = 0.25f;
+            countdown = 0.20f;
             consumido += consumo;
             SetPercentageOfEnergy(consumido);
 
@@ -196,6 +196,7 @@ public class Coche : MonoBehaviour
                 GM.GetComponent<GM>().GameOver(false);
             }
         }
+        Debug.Log(consumido);
         player.transform.position = new Vector3(player.transform.position.x + x * (Time.deltaTime * 50), player.transform.position.y + y * (Time.deltaTime * 50), player.transform.position.z);
     }
 

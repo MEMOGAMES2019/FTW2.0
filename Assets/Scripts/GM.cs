@@ -62,7 +62,7 @@ public class GM : MonoBehaviour
     /// <summary>
     /// Variable que contiene el mejor consumo para recorrer el mapa hasta la meta.
     /// </summary>
-    public int consumoIdeal;
+    int consumoIdeal;
 
     /// <summary>
     /// Nivel del mapa.
@@ -76,6 +76,7 @@ public class GM : MonoBehaviour
 
     void Start()
     {
+        consumoIdeal = -1;
         nivel = GameObject.Find("Nivel").gameObject;
 
         //Se inicializan los atributos para el A*
@@ -124,6 +125,10 @@ public class GM : MonoBehaviour
     {
         sol = solver.Solve(x, y, meta);
         sol.RemoveFirst();
+        if(consumoIdeal == -1)
+        {
+            consumoIdeal = sol.Count;
+        }
         while (sol.Count > 0)
         {
             int ind;
@@ -186,9 +191,11 @@ public class GM : MonoBehaviour
             panelWin.gameObject.SetActive(true);
             int consumo = coche.transform.GetChild(3).GetComponent<Coche>().GetConsumoTotal();
             int numEstr = 0;
-            if (consumo <= consumoIdeal + 10) numEstr = 3;
-            else if (consumo <= consumoIdeal + 30) numEstr = 2;
-            else if (consumo <= consumoIdeal + 50) numEstr = 1;
+            Debug.Log(consumoIdeal);
+            if (consumo <= consumoIdeal) numEstr = 3;
+            else if (consumo <= consumoIdeal + 15) numEstr = 2;
+            else if (consumo <= consumoIdeal + 20) numEstr = 1;
+            else  numEstr = 0;
 
             /* Guardamos el número de estrellas que hemos conseguido si el número de estrellas 
              * es mayor al que teníamos anteriormente */
