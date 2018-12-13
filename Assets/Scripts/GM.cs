@@ -3,6 +3,7 @@ using RAGE.Analytics;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 /// <summary>
 /// Script Game Manager. Se encarga de centralizar operaciones como llamar al canvas, poner el juego en pausa, controlar el estado de la partida...
@@ -91,8 +92,20 @@ public class GM : MonoBehaviour
     /// </summary>
     public GameObject ImageConsumo;
 
+    IEnumerator fadeOut()
+    {
+        while (aS.volume>0)
+        {
+            aS.volume -= 0.01f;
+            yield return null;
+        }
+
+    }
+    AudioSource aS;
     void Start()
     {
+        aS = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        StartCoroutine(fadeOut());
         consumoIdeal = -1;
         nivel = GameObject.Find("Nivel").gameObject;
 

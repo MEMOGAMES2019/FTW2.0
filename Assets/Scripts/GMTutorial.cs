@@ -1,5 +1,6 @@
 ﻿using AStar;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -68,8 +69,20 @@ public class GMTutorial : MonoBehaviour
     public GameObject[] cartelesTutorial;
     int indTutorial;
 
+    IEnumerator fadeOut()
+    {
+        while (aS.volume > 0)
+        {
+            aS.volume -= 0.01f;
+            yield return null;
+        }
+
+    }
+    AudioSource aS;
     void Start()
     {
+        aS = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        StartCoroutine(fadeOut());
         manoMapa.gameObject.SetActive(false);
         manoPath.gameObject.SetActive(false);
         manoCombustible.gameObject.SetActive(false);

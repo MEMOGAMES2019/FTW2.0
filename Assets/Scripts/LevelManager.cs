@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,9 +19,20 @@ public class LevelManager : MonoBehaviour
     /// Nivel.
     /// </summary>
     public int level;
+    IEnumerator fadeIn()
+    {
+        while (aS.volume <= 0.6f)
+        {
+            aS.volume += 0.005f;
+            yield return null;
+        }
 
+    }
+    AudioSource aS;
     void Start()
     {
+        aS = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        StartCoroutine(fadeIn());
         int index = 0;
         foreach (GameObject nivel in niveles)
         {
