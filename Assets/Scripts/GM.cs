@@ -74,6 +74,23 @@ public class GM : MonoBehaviour
     /// </summary>
     public int numMapa;
 
+
+    /// <summary>
+    /// Contexto que indica donde debe llegar el jugador.
+    /// </summary>
+    public GameObject contexto;
+
+
+    /// <summary>
+    /// Mano de ayuda que señala el mapa.
+    /// </summary>
+    public GameObject manoMapa;
+
+    /// <summary>
+    /// Imagen con el consumo
+    /// </summary>
+    public GameObject ImageConsumo;
+
     void Start()
     {
         consumoIdeal = -1;
@@ -113,6 +130,7 @@ public class GM : MonoBehaviour
         OnMapClicked(null);
 
     }
+  
 
     /// <summary>
     /// Este método se encarga de llamar al solver A* y recibe una lista con el camino óptimo desde la posición (x,y) hasta la meta.
@@ -152,25 +170,32 @@ public class GM : MonoBehaviour
             coche.transform.Find("Coche").gameObject.GetComponent<Coche>().OnPause();
             coche.transform.Find("Posicion").gameObject.SetActive(paused);
             cameraPausa.gameObject.SetActive(paused);
+           
 
             if (paused)
             {
+                ImageConsumo.SetActive(false);
+                metaO.GetComponent<MeshRenderer>().enabled = true;
                 x = Mathf.FloorToInt(coche.gameObject.transform.position.x);
                 y = Mathf.FloorToInt(-coche.gameObject.transform.position.y);
                 Posicion pos = coche.GetComponentInChildren<Coche>().UltimaCasilla();
                 mapa[pos.y, pos.x] = 1000;
                 Find(x, y, true);
+                contexto.SetActive(true);
 
             }
             else
             {
-
-                Debug.Log(x + " " + y);
+                manoMapa.SetActive(false);
+                ImageConsumo.SetActive(true);
                 Find(x, y, false);
                 Posicion pos = coche.GetComponentInChildren<Coche>().UltimaCasilla();
                 mapa[pos.y, pos.x] = 1;
                 num--;
                 if (texto != null) texto.GetComponent<Text>().text = num.ToString();
+                contexto.SetActive(false);
+                metaO.GetComponent<MeshRenderer>().enabled = false;
+
             }
 
         }

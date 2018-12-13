@@ -14,14 +14,14 @@ public class CameraControl : MonoBehaviour
     public float posYmin;
     public float offsetXmax = 6;
     public float offsetXmin = 6;
-    public float offsetYmax = 5;
+    public float offsetYmax = 15;
 
     // ==============================
     void Start()
     {
         posXmax = 261 - offsetXmax;
         posXmin = 0 + offsetXmin;
-        posYmax = 0 - offsetYmax;
+        posYmax = 50;// 0 - offsetYmax;
         posYmin = -57;
 
         offset = target.transform.position - transform.position;

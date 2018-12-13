@@ -20,16 +20,13 @@ public class Flecha : MonoBehaviour
     /// <summary>
     /// Comprueba si se ha hecho click sobre ella y avisa al coche.
     /// </summary>
-    private void OnMouseOver()
+    private void OnMouseUp()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            audioSource.clip = flecha;
-            audioSource.Play();
-            coche.GetComponent<Coche>().OnClick(this.gameObject.name);
-        }
-
+        audioSource.clip = flecha;
+        audioSource.Play();
+        coche.GetComponent<Coche>().OnClick(this.gameObject.name);
     }
+    
 
     /// <summary>
     /// Activa la flecha pero no la dibuja.

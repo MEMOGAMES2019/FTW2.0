@@ -140,7 +140,7 @@ public class GMTutorial : MonoBehaviour
     /// </summary>
     public void OnMapClicked(GameObject texto)
     {
-        if (indTutorial == 0 || indTutorial == 3)
+        if (indTutorial == 0 || indTutorial == 5)
         {
             actualizaTutorial();
         }
@@ -204,32 +204,45 @@ public class GMTutorial : MonoBehaviour
                 cartelesTutorial[indTutorial].gameObject.SetActive(true);
                 break;
             case 1:
+                cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
+                cartelesTutorial[indTutorial].gameObject.SetActive(true);
+                break;
+            case 2:
                 manoMapa.SetActive(false);
                 cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
                 manoPath.SetActive(true);
                 cartelesTutorial[indTutorial].gameObject.SetActive(true);
                 break;
-            case 2:
+            case 3:
+                cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
+                manoPath.SetActive(false);
+                cartelesTutorial[indTutorial].gameObject.SetActive(true);
+                break;
+            case 4:
                 cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
                 manoPath.SetActive(false);
                 manoMapa.SetActive(true);
                 cartelesTutorial[indTutorial].gameObject.SetActive(true);
                 break;
-            case 3:
+            case 5:
                 cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
                 cartelesTutorial[indTutorial].gameObject.SetActive(true);
                 manoMapa.SetActive(false);
                 coche.transform.Find("Coche").gameObject.GetComponent<Coche>().SwitchOff();
                 break;
 
-            case 4:
+            case 6:
                 cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
                 cartelesTutorial[indTutorial].gameObject.SetActive(true);
                 manoCombustible.gameObject.SetActive(true);
                 break;
-            case 5:
+            case 7:
                 cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
+                cartelesTutorial[indTutorial].gameObject.SetActive(true);
                 manoCombustible.gameObject.SetActive(false);
+                break;
+            case 8:
+                cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
                 break;
 
         }
@@ -238,7 +251,7 @@ public class GMTutorial : MonoBehaviour
     private void Update()
     {
         if (!coche.transform.Find("Coche").GetComponent<Coche>().IsMoving() && indTutorial == 0) actualizaTutorial();
-        if (indTutorial != 3 && Input.GetMouseButtonDown(0)) actualizaTutorial();
+        if (indTutorial != 5 && Input.GetMouseButtonDown(0)) actualizaTutorial();
         //if ((indTutorial == 1 || indTutorial >= 4) && Input.GetMouseButtonDown(0)) actualizaTutorial();
     }
 }

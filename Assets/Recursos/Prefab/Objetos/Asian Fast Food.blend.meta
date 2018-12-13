@@ -1,0 +1,180 @@
+fileFormatVersion: 2
+guid: 04877903b55a7544aa840abece0874b1
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Beer
+    100004: Bin
+    100006: Car
+    100008: Car_001
+    100010: Car_002
+    100012: Car_003
+    100014: Car_004
+    100016: Car_005
+    100018: MAG_T2_16_PERRONE_01
+    100020: MAG_T2_16_PERRONE_01_001
+    100022: Police_Car
+    100024: Trash_container
+    400000: //RootNode
+    400002: Beer
+    400004: Bin
+    400006: Car
+    400008: Car_001
+    400010: Car_002
+    400012: Car_003
+    400014: Car_004
+    400016: Car_005
+    400018: MAG_T2_16_PERRONE_01
+    400020: MAG_T2_16_PERRONE_01_001
+    400022: Police_Car
+    400024: Trash_container
+    2100000: Material_025
+    2100002: Material_012
+    2100004: Material_010
+    2100006: Material_013
+    2100008: Material_016
+    2100010: Material_014
+    2100012: Material_023
+    2100014: Material_022
+    2100016: Material_019
+    2100018: Material_020
+    2100020: Material_021
+    2100022: Material_018
+    2100024: Material_017
+    2100026: Material_011
+    2100028: Pavillon-M_001
+    2100030: Material_003
+    2100032: Material_004
+    2100034: Material_006
+    2100036: Material_008
+    2100038: Material_005
+    2100040: Material_002
+    2100042: Material_001
+    2100044: Material_009
+    2100046: Material_007
+    2100048: Material_039
+    2100050: Material_050
+    2100052: Material_047
+    2100054: Material_046
+    2100056: Material_045
+    2300000: Beer
+    2300002: Bin
+    2300004: Car
+    2300006: Car_001
+    2300008: Car_002
+    2300010: Car_003
+    2300012: Car_004
+    2300014: Car_005
+    2300016: MAG_T2_16_PERRONE_01
+    2300018: MAG_T2_16_PERRONE_01_001
+    2300020: Police_Car
+    2300022: Trash_container
+    3300000: Beer
+    3300002: Bin
+    3300004: Car
+    3300006: Car_001
+    3300008: Car_002
+    3300010: Car_003
+    3300012: Car_004
+    3300014: Car_005
+    3300016: MAG_T2_16_PERRONE_01
+    3300018: MAG_T2_16_PERRONE_01_001
+    3300020: Police_Car
+    3300022: Trash_container
+    4300000: Car_005
+    4300002: Car_004
+    4300004: Car_003
+    4300006: Police_Car
+    4300008: Car_002
+    4300010: Car_001
+    4300012: Car
+    4300014: MAG_T2_16_PERRONE_01
+    4300016: MAG_T2_16_PERRONE_01_001
+    4300018: Beer
+    4300020: Bin
+    4300022: Trash_container
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using RAGE.Analytics;
+using System.Collections;
 
 /// <summary>
 /// Script que contiene el comportamiento del coche.
@@ -120,11 +121,6 @@ public class Coche : MonoBehaviour
         GM = GameObject.Find("GM");
     }
 
-    void Update()
-    {
-        if (moving && !sleep) Move();
-    }
-
     /// <summary>
     /// Si se ha pulsado alguna flecha se comprueba cual es, se gira el coche 
     /// y se actualiza la dirección si es necesario y se llama a arrancar.
@@ -173,6 +169,17 @@ public class Coche : MonoBehaviour
             go.GetComponent<Flecha>().EstadoCoche(false);
             go.SetActive(false);
         }
+        StartCoroutine(move());
+    }
+
+    IEnumerator move()
+    {
+        while (moving)
+        {
+            if(!paused)Move();
+            yield return null;
+        }
+        
     }
 
     float countdown = 0.20f;
@@ -181,10 +188,11 @@ public class Coche : MonoBehaviour
     /// </summary>
     void Move()
     {
+        Debug.Log(Time.deltaTime);
         countdown -= Time.deltaTime;
         if (countdown <= 0.0f)
         {
-            countdown = 0.20f;
+            countdown = 1.0f;
             consumido += consumo;
             SetPercentageOfEnergy(consumido);
 
@@ -205,7 +213,6 @@ public class Coche : MonoBehaviour
     /// </summary>
     public void OnPause()
     {
-        sleep = !sleep;
         paused = !paused;
     }
 
