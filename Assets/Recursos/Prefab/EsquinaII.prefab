@@ -39,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4288184541626026}
   - component: {fileID: 212378401509775566}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Resaltar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4410797396999974}
   - component: {fileID: 33310995860380966}
   - component: {fileID: 23591032416633216}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EsquinaII
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1996827948658768}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: -34, z: 0}
+  m_LocalPosition: {x: 3, y: -22, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4990426397962220}
