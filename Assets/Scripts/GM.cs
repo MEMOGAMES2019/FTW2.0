@@ -38,7 +38,7 @@ public class GM : MonoBehaviour
     /// <summary>
     /// Referencia al objeto coche.
     /// </summary>
-    public GameObject coche;
+    public GameObject car;
 
     /// <summary>
     /// Referencia a la meta.
@@ -102,7 +102,7 @@ public class GM : MonoBehaviour
 
     }
     AudioSource aS;
-    void Start()
+    void Awake()
     {
         aS = GameObject.Find("SoundManager").GetComponent<AudioSource>();
         StartCoroutine(fadeOut());
@@ -140,7 +140,7 @@ public class GM : MonoBehaviour
         solver.ActualizaMapa(mapa);
         meta.x = Mathf.FloorToInt(metaO.transform.position.x); meta.y = Mathf.FloorToInt(-metaO.transform.position.y);
 
-        OnMapClicked(null);
+       
 
     }
   
@@ -156,7 +156,7 @@ public class GM : MonoBehaviour
     {
         sol = solver.Solve(x, y, meta);
         sol.RemoveFirst();
-        if(consumoIdeal == -1)
+        if(consumoIdeal <=0)
         {
             consumoIdeal = sol.Count;
         }
@@ -180,19 +180,21 @@ public class GM : MonoBehaviour
         if (num > 0)
         {
             paused = !paused;
-            coche.transform.Find("Coche").gameObject.GetComponent<Coche>().OnPause();
-            coche.transform.Find("Posicion").gameObject.SetActive(paused);
+            car.GetComponent<Car>().OnPause();
+            car.transform.Find("Posicion").gameObject.SetActive(paused);
             cameraPausa.gameObject.SetActive(paused);
+            cameraPrincipal.gameObject.SetActive(!paused);
            
 
             if (paused)
             {
                 ImageConsumo.SetActive(false);
                 metaO.GetComponent<MeshRenderer>().enabled = true;
-                x = Mathf.FloorToInt(coche.gameObject.transform.position.x);
-                y = Mathf.FloorToInt(-coche.gameObject.transform.position.y);
-                Posicion pos = coche.GetComponentInChildren<Coche>().UltimaCasilla();
-                mapa[pos.y, pos.x] = 1000;
+                x = Mathf.FloorToInt(car.gameObject.transform.position.x);
+                y = Mathf.FloorToInt(-car.gameObject.transform.position.y);
+                Posicion pos = car.GetComponentInChildren<Car>().UltimaCasilla();
+
+                mapa[pos.y, pos.x] = 100000;
                 Find(x, y, true);
                 contexto.SetActive(true);
 
@@ -202,7 +204,7 @@ public class GM : MonoBehaviour
                 manoMapa.SetActive(false);
                 ImageConsumo.SetActive(true);
                 Find(x, y, false);
-                Posicion pos = coche.GetComponentInChildren<Coche>().UltimaCasilla();
+                Posicion pos = car.GetComponentInChildren<Car>().UltimaCasilla();
                 mapa[pos.y, pos.x] = 1;
                 num--;
                 if (texto != null) texto.GetComponent<Text>().text = num.ToString();
@@ -222,12 +224,12 @@ public class GM : MonoBehaviour
     public void GameOver(bool win)
     {
         string nivelMapa = string.Concat("N", this.numNivel, "mapa", this.numMapa);
-        coche.transform.Find("Coche").gameObject.GetComponent<Coche>().OnPause();
+        //coche.transform.Find("Coche").gameObject.GetComponent<Coche>().OnPause();
 
         if (win) //Si se ha ganado se activa el panel de victoria y se dan las estrellas correspondientes según el consumo.
         {
             panelWin.gameObject.SetActive(true);
-            int consumo = coche.transform.GetChild(3).GetComponent<Coche>().GetConsumoTotal();
+            int consumo = car.GetComponent<Car>().GetConsumoTotal();
             int numEstr = 0;
             Debug.Log(consumoIdeal);
             if (consumo <= consumoIdeal) numEstr = 3;
@@ -255,5 +257,10 @@ public class GM : MonoBehaviour
         {
             Tracker.T.Completable.Completed(nivelMapa, CompletableTracker.Completable.Level, false);
         }
+    }
+
+    public bool Paused
+    {
+        get { return paused; }
     }
 }

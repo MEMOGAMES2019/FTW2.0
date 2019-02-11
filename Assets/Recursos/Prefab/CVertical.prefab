@@ -21,8 +21,6 @@ GameObject:
   - component: {fileID: 4110763680888524}
   - component: {fileID: 33029075277188336}
   - component: {fileID: 23660677873570740}
-  - component: {fileID: 54047775337431474}
-  - component: {fileID: 65680759786960338}
   m_Layer: 12
   m_Name: CVertical
   m_TagString: Untagged
@@ -115,33 +113,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1390663897985038}
   m_Mesh: {fileID: 4300000, guid: e2b75bbf587eb274486e188c8306c4f8, type: 3}
---- !u!54 &54047775337431474
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1390663897985038}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
---- !u!65 &65680759786960338
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1390663897985038}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 1.1471331, y: -0.33125198, z: 2.157699}
 --- !u!212 &212417322364627694
 SpriteRenderer:
   m_ObjectHideFlags: 1

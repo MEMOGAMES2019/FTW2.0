@@ -15,6 +15,7 @@ public class TriggerMeta : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("hola");
         if (SceneManager.GetActiveScene().name != "Tutorial")
             GM.GetComponent<GM>().GameOver(true);
         else
