@@ -527,7 +527,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.1000061, y: -2.2000885}
+  m_AnchoredPosition: {x: 0.1000061, y: -2.2000732}
   m_SizeDelta: {x: -161.30005, y: -117.89996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7911764
@@ -16003,8 +16003,8 @@ GameObject:
   - component: {fileID: 354238162}
   - component: {fileID: 354238166}
   - component: {fileID: 354238165}
-  - component: {fileID: 354238164}
   - component: {fileID: 354238163}
+  - component: {fileID: 354238164}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -16125,17 +16125,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &354238164
-MonoBehaviour:
+--- !u!111 &354238164
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 354238161}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da96d67c706545049b4ad3cad77ec16f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &354238165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70567,8 +70571,8 @@ GameObject:
   - component: {fileID: 1620301946}
   - component: {fileID: 1620301950}
   - component: {fileID: 1620301949}
-  - component: {fileID: 1620301948}
   - component: {fileID: 1620301947}
+  - component: {fileID: 1620301948}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -70689,17 +70693,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &1620301948
-MonoBehaviour:
+--- !u!111 &1620301948
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1620301945}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da96d67c706545049b4ad3cad77ec16f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &1620301949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90662,8 +90670,8 @@ GameObject:
   - component: {fileID: 1996325363}
   - component: {fileID: 1996325367}
   - component: {fileID: 1996325366}
-  - component: {fileID: 1996325365}
   - component: {fileID: 1996325364}
+  - component: {fileID: 1996325365}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -90784,17 +90792,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &1996325365
-MonoBehaviour:
+--- !u!111 &1996325365
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1996325362}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da96d67c706545049b4ad3cad77ec16f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &1996325366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92414,7 +92426,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.757, y: 0.842326}
   m_AnchorMax: {x: 0.8281594, y: 0.9378752}
-  m_AnchoredPosition: {x: 0.8999634, y: -2.7999725}
+  m_AnchoredPosition: {x: 0.8999634, y: -2.7999878}
   m_SizeDelta: {x: -27, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2039765541

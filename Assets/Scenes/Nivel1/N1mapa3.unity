@@ -18069,8 +18069,8 @@ GameObject:
   - component: {fileID: 1020648535}
   - component: {fileID: 1020648539}
   - component: {fileID: 1020648538}
-  - component: {fileID: 1020648537}
   - component: {fileID: 1020648536}
+  - component: {fileID: 1020648537}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -18191,17 +18191,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &1020648537
-MonoBehaviour:
+--- !u!111 &1020648537
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1020648534}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da96d67c706545049b4ad3cad77ec16f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &1020648538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26153,8 +26157,8 @@ GameObject:
   - component: {fileID: 1523772044}
   - component: {fileID: 1523772048}
   - component: {fileID: 1523772047}
-  - component: {fileID: 1523772046}
   - component: {fileID: 1523772045}
+  - component: {fileID: 1523772046}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -26275,17 +26279,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &1523772046
-MonoBehaviour:
+--- !u!111 &1523772046
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1523772043}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da96d67c706545049b4ad3cad77ec16f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &1523772047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32032,8 +32040,8 @@ GameObject:
   - component: {fileID: 1821848125}
   - component: {fileID: 1821848129}
   - component: {fileID: 1821848128}
-  - component: {fileID: 1821848127}
   - component: {fileID: 1821848126}
+  - component: {fileID: 1821848127}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -32154,17 +32162,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &1821848127
-MonoBehaviour:
+--- !u!111 &1821848127
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1821848124}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da96d67c706545049b4ad3cad77ec16f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &1821848128
 MonoBehaviour:
   m_ObjectHideFlags: 0

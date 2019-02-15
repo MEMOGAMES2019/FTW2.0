@@ -8330,7 +8330,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7443449, y: 0.81675}
   m_AnchorMax: {x: 0.80200005, y: 0.90000004}
-  m_AnchoredPosition: {x: 2.3999634, y: 0.70002747}
+  m_AnchoredPosition: {x: 2.3999634, y: 0.7000122}
   m_SizeDelta: {x: -20, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348713348
@@ -20360,8 +20360,8 @@ GameObject:
   - component: {fileID: 876220344}
   - component: {fileID: 876220348}
   - component: {fileID: 876220347}
-  - component: {fileID: 876220346}
   - component: {fileID: 876220345}
+  - component: {fileID: 876220346}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -20482,17 +20482,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &876220346
-MonoBehaviour:
+--- !u!111 &876220346
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 876220343}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da96d67c706545049b4ad3cad77ec16f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &876220347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26585,8 +26589,8 @@ GameObject:
   - component: {fileID: 1136631611}
   - component: {fileID: 1136631615}
   - component: {fileID: 1136631614}
-  - component: {fileID: 1136631613}
   - component: {fileID: 1136631612}
+  - component: {fileID: 1136631613}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -26707,17 +26711,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &1136631613
-MonoBehaviour:
+--- !u!111 &1136631613
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1136631610}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da96d67c706545049b4ad3cad77ec16f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &1136631614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34371,8 +34379,8 @@ GameObject:
   - component: {fileID: 1475181917}
   - component: {fileID: 1475181921}
   - component: {fileID: 1475181920}
-  - component: {fileID: 1475181919}
   - component: {fileID: 1475181918}
+  - component: {fileID: 1475181919}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -34493,17 +34501,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &1475181919
-MonoBehaviour:
+--- !u!111 &1475181919
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1475181916}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da96d67c706545049b4ad3cad77ec16f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &1475181920
 MonoBehaviour:
   m_ObjectHideFlags: 0

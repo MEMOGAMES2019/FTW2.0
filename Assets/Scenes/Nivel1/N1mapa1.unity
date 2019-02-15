@@ -5178,8 +5178,8 @@ GameObject:
   - component: {fileID: 230426525}
   - component: {fileID: 230426529}
   - component: {fileID: 230426528}
-  - component: {fileID: 230426527}
   - component: {fileID: 230426526}
+  - component: {fileID: 230426530}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -5300,17 +5300,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &230426527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 230426524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da96d67c706545049b4ad3cad77ec16f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &230426528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5345,6 +5334,21 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 230426524}
   m_CullTransparentMesh: 0
+--- !u!111 &230426530
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 230426524}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &237829361
 Prefab:
   m_ObjectHideFlags: 0
@@ -6528,7 +6532,6 @@ GameObject:
   - component: {fileID: 305245021}
   - component: {fileID: 305245020}
   - component: {fileID: 305245019}
-  - component: {fileID: 305245018}
   - component: {fileID: 305245017}
   m_Layer: 0
   m_Name: CameraCenital
@@ -6645,25 +6648,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &305245018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 305245015}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9cad1b692825bc4a88f7465ad2f4215, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  posXmax: 100
-  posXmin: 0
-  posYmax: 0
-  posYmin: 0
-  offsetXmax: 20
-  offsetXmin: 4
-  offsetYmax: 20
 --- !u!81 &305245019
 AudioListener:
   m_ObjectHideFlags: 0
@@ -10893,8 +10877,8 @@ GameObject:
   - component: {fileID: 588251751}
   - component: {fileID: 588251755}
   - component: {fileID: 588251754}
-  - component: {fileID: 588251753}
   - component: {fileID: 588251752}
+  - component: {fileID: 588251756}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -11015,17 +10999,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &588251753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 588251750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da96d67c706545049b4ad3cad77ec16f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &588251754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11060,6 +11033,21 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 588251750}
   m_CullTransparentMesh: 0
+--- !u!111 &588251756
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 588251750}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &590214414
 Prefab:
   m_ObjectHideFlags: 0
@@ -14280,8 +14268,8 @@ GameObject:
   - component: {fileID: 777608843}
   - component: {fileID: 777608847}
   - component: {fileID: 777608846}
-  - component: {fileID: 777608845}
   - component: {fileID: 777608844}
+  - component: {fileID: 777608845}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -14402,17 +14390,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &777608845
-MonoBehaviour:
+--- !u!111 &777608845
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 777608842}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da96d67c706545049b4ad3cad77ec16f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 3d97967027bba894c938611c523cdba0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &777608846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29619,6 +29611,11 @@ Prefab:
       propertyPath: combustible
       value: 
       objectReference: {fileID: 658713253}
+    - target: {fileID: 114677820567854650, guid: 34350197571f4064b9b7295f044c9f72,
+        type: 2}
+      propertyPath: flecha
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d7d7d9c0db65254d9bcd3bfef362698, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34350197571f4064b9b7295f044c9f72, type: 2}
   m_IsPrefabAsset: 0
