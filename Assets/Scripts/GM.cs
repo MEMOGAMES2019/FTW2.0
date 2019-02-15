@@ -12,28 +12,28 @@ public class GM : MonoBehaviour
 {
 
     //Atributos para el algoritmo de pathfinding A*
-    AStarSolver solver;
+    protected AStarSolver solver;
     LinkedList<Posicion> sol;
-    Posicion meta;
-    GameObject nivel;
+    protected Posicion meta;
+    protected GameObject nivel;
     public int ancho = 0, alto = 0;
 
-    int[,] mapa;
+    protected int[,] mapa;
 
     /// <summary>
     /// Controla si el juego está pausado o no.
     /// </summary>
-    bool paused = false;
+   protected bool paused = false;
 
     /// <summary>
     /// Controlan la posición X del player en el mapa.
     /// </summary>
-    private int x;
+    protected int x;
 
     /// <summary>
     /// Controlan la posición Y del player en el mapa.
     /// </summary>
-    private int y;
+    protected int y;
 
     /// <summary>
     /// Referencia al objeto coche.
@@ -63,7 +63,7 @@ public class GM : MonoBehaviour
     /// <summary>
     /// Variable que contiene el mejor consumo para recorrer el mapa hasta la meta.
     /// </summary>
-    int consumoIdeal;
+    protected int consumoIdeal;
 
     /// <summary>
     /// Nivel del mapa.
@@ -91,6 +91,7 @@ public class GM : MonoBehaviour
     /// Imagen con el consumo
     /// </summary>
     public GameObject ImageConsumo;
+    bool finished = false;
 
     IEnumerator fadeOut()
     {
@@ -101,7 +102,7 @@ public class GM : MonoBehaviour
         }
 
     }
-    AudioSource aS;
+    protected AudioSource aS;
     void Awake()
     {
         aS = GameObject.Find("SoundManager").GetComponent<AudioSource>();
@@ -152,7 +153,7 @@ public class GM : MonoBehaviour
     /// <param name="x"></param>
     /// <param name="y"></param>
     /// <param name="mostrar"></param>
-    public void Find(int x, int y, bool mostrar)
+    public virtual void Find(int x, int y, bool mostrar)
     {
         sol = solver.Solve(x, y, meta);
         sol.RemoveFirst();
@@ -173,11 +174,11 @@ public class GM : MonoBehaviour
     /// <summary>
     /// Se llama cuando se pulsa el botón de Pausa
     /// </summary>
-    public void OnMapClicked(GameObject texto)
+    public virtual void OnMapClicked(GameObject texto)
     {
         int num = 100;
         if (texto != null) num = int.Parse(texto.GetComponent<Text>().text);
-        if (num > 0)
+        if (num > 0 && !finished)
         {
             paused = !paused;
             car.GetComponent<Car>().OnPause();
@@ -221,11 +222,11 @@ public class GM : MonoBehaviour
     /// Se llama cuando acaba la partida. El parametro win contiene si se ha ganado o no.
     /// </summary>
     /// <param name="win"></param>
-    public void GameOver(bool win)
+    public virtual void GameOver(bool win)
     {
         string nivelMapa = string.Concat("N", this.numNivel, "mapa", this.numMapa);
-        //coche.transform.Find("Coche").gameObject.GetComponent<Coche>().OnPause();
-
+        car.GetComponent<Car>().OnPause();
+        finished = true;
         if (win) //Si se ha ganado se activa el panel de victoria y se dan las estrellas correspondientes según el consumo.
         {
             panelWin.gameObject.SetActive(true);
@@ -259,7 +260,7 @@ public class GM : MonoBehaviour
         }
     }
 
-    public bool Paused
+    public virtual bool Paused
     {
         get { return paused; }
     }

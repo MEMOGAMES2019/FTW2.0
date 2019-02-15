@@ -19,7 +19,7 @@ public struct Posicion
 namespace AStar
 {
 
-    class AStarSolver
+    public class AStarSolver
     {
         private Posicion arr, abj, der, izq;                                            //Los cuatro movimientos posibles de cada jugador
         private Posicion pDestino;

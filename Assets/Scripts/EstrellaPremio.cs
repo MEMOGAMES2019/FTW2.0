@@ -5,7 +5,7 @@
 /// </summary>
 public class EstrellaPremio : MonoBehaviour
 {
-    /// <summary>
+   /* /// <summary>
     /// Flag que controla si tiene que actualizarse la animación.
     /// </summary>
     bool move = false;
@@ -43,5 +43,5 @@ public class EstrellaPremio : MonoBehaviour
     private void OnEnable()
     {
         move = true;
-    }
+    }*/
 }

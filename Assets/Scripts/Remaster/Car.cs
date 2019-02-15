@@ -14,6 +14,7 @@ public class Car : MonoBehaviour {
     public int posX=0, posY= 0;
     bool pause = false;
     bool moving = true;
+    bool OnMove = false;
 
     /// <summary>
     /// Objeto del GUI que muestra el combustible.
@@ -63,7 +64,7 @@ public class Car : MonoBehaviour {
         rt = bar.GetComponent<RectTransform>();                                                    //Se configura el rectángulo de la barra para poder decrementarla
         totalEnergy = rt.sizeDelta.x;
         gm.OnMapClicked(null);
-        Debug.Log(posX + " " + posY);
+
         StartToMove();
 
     }
@@ -85,7 +86,7 @@ public class Car : MonoBehaviour {
         if (map[posY, posX + 1] == 1 && moving) posX++;
         else return false;
         dir = 0;
-        Debug.Log("primero esto"+ posX);
+
         while (map[posY, posX] != 2)
         {
             posX++;
@@ -172,6 +173,7 @@ public class Car : MonoBehaviour {
 
     IEnumerator move(Vector3 v, float t)
     {
+        OnMove = true;
         foreach (GameObject go in arrows) go.SetActive(false);
        Vector3 vAux = new Vector3(v.x+0.5f, v.y, v.z);
         car.transform.LookAt(vAux, car.transform.up);
@@ -192,6 +194,7 @@ public class Car : MonoBehaviour {
             }
             yield return null;
         }
+        OnMove = false;
         showArrows();
 
     }
@@ -245,4 +248,5 @@ public class Car : MonoBehaviour {
         pause = !pause;
     }
     
+    public bool IsMoving() { return OnMove; }
 }
