@@ -17,7 +17,7 @@ public class GM : MonoBehaviour
     protected Posicion meta;
     protected GameObject nivel;
     public int ancho = 0, alto = 0;
-
+  
     protected int[,] mapa;
 
     /// <summary>
@@ -34,6 +34,7 @@ public class GM : MonoBehaviour
     /// Controlan la posición Y del player en el mapa.
     /// </summary>
     protected int y;
+    
 
     /// <summary>
     /// Referencia al objeto coche.
@@ -59,6 +60,10 @@ public class GM : MonoBehaviour
     /// Panel de victoria.
     /// </summary>
     public GameObject panelWin;
+    /// <summary>
+    /// Panel de game over.
+    /// </summary>
+    public GameObject panelGameOver;
 
     /// <summary>
     /// Variable que contiene el mejor consumo para recorrer el mapa hasta la meta.
@@ -232,10 +237,10 @@ public class GM : MonoBehaviour
             panelWin.gameObject.SetActive(true);
             int consumo = car.GetComponent<Car>().GetConsumoTotal();
             int numEstr = 0;
-            Debug.Log(consumoIdeal);
+           
             if (consumo <= consumoIdeal) numEstr = 3;
             else if (consumo <= consumoIdeal + 15) numEstr = 2;
-            else if (consumo <= consumoIdeal + 20) numEstr = 1;
+            else if (consumo <= consumoIdeal + 25) numEstr = 1;
             else  numEstr = 0;
 
             /* Guardamos el número de estrellas que hemos conseguido si el número de estrellas 
@@ -256,10 +261,15 @@ public class GM : MonoBehaviour
         }
         else
         {
+            panelGameOver.gameObject.SetActive(true);
             Tracker.T.Completable.Completed(nivelMapa, CompletableTracker.Completable.Level, false);
         }
     }
 
+    public int ConsumoIdeal
+    {
+        get { return consumoIdeal; }
+    }
     public virtual bool Paused
     {
         get { return paused; }

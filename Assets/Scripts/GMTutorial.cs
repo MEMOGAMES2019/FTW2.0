@@ -10,9 +10,15 @@ using UnityEngine.UI;
 public class GMTutorial : GM
 {
 
-
+    public GameObject exitButton;
     public GameObject manoPath, manoCombustible;
     public GameObject[] cartelesTutorial;
+    float timeBlocked = 25;
+
+    /// <summary>
+    /// Cartel recordatorio por si el usuario se bloquea.
+    /// </summary>
+    public GameObject recordatorio;
     int indTutorial;
 
     IEnumerator fadeOut()
@@ -178,6 +184,7 @@ public class GMTutorial : GM
                 break;
             case 8:
                 cartelesTutorial[indTutorial - 1].gameObject.SetActive(false);
+                exitButton.SetActive(true);
                 break;
 
         }
@@ -187,6 +194,19 @@ public class GMTutorial : GM
     {
         if (!car.transform.Find("Coche").GetComponent<Car>().IsMoving() && indTutorial == 0) actualizaTutorial();
         if (indTutorial <= 8&& indTutorial != 5 && Input.GetMouseButtonDown(0)) actualizaTutorial();
-        //if ((indTutorial == 1 || indTutorial >= 4) && Input.GetMouseButtonDown(0)) actualizaTutorial();
+        if (Input.GetMouseButtonDown(0))
+        {
+            timeBlocked = 10;
+            recordatorio.SetActive(false);
+        }
+        if(timeBlocked <= 0)
+        {
+            recordatorio.SetActive(true);
+            timeBlocked = 10;
+        }
+        else
+        {
+            timeBlocked -= Time.deltaTime;
+        }
     }
 }

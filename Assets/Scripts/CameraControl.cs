@@ -15,6 +15,7 @@ public class CameraControl : MonoBehaviour
     public float offsetXmax = 6;
     public float offsetXmin = 6;
     public float offsetYmax = 15;
+    public float vel;
 
     // ==============================
     void Start()
@@ -44,7 +45,7 @@ public class CameraControl : MonoBehaviour
         if (destino.y > posYmax) destino.y = posYmax;
 
         Vector3.Lerp(orig, destino, 1 / 20f);
-        Vector3 despl = Vector3.Lerp(orig, destino, Time.deltaTime);
+        Vector3 despl = Vector3.Lerp(orig, destino, Time.deltaTime*vel);
         transform.position = despl;
     }
 }
